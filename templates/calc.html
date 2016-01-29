@@ -1,29 +1,30 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html> <head>
+<html>
+<head>
 <title>ACP Controle Times</title>
 
-  <!-- 'viewport' is used by bootstrap to respond to device size -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 'viewport' is used by bootstrap to respond to device size -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Javascript:  JQuery from a content distribution network (CDN) -->
-  <script
-     src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-  </script>
+<!-- Javascript:  JQuery from a content distribution network (CDN) -->
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
 
-  <!-- Bootstrap includes javascript and css  (must follow jquery) -->
-  <link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-   <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
-   </script>
+<!-- Bootstrap includes javascript and css  (must follow jquery) -->
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+ </script>
 
-  <!-- <script type="text/javascript"  -->
-  <!--    src="/static/js/calc.js"> -->
-  <!-- </script> -->
+<!-- <script type="text/javascript"  -->
+<!--    src="/static/js/calc.js"> -->
+<!-- </script> -->
 </head>
 
-   <!-- Our own style sheet -->
-   <link rel="stylesheet" href="/static/css/calc.css" />
+<!-- Our own style sheet -->
+<link rel="stylesheet" href="/static/css/calc.css" />
 
 <body>
 <!-- bootstrap requires a 'container' div around content -->
@@ -32,11 +33,11 @@
 <h1>ACP Brevet Closing times</h1>
 
   <!--
-  -- If there are any warnings or other messages from a prior
-  -- request to the server, 
-  -- they appear above the rest of the content, just until the next 
-  -- action.  (This is only on request/response transactions that
-  -- result in regenerating the page, not on every xmlhttp request.) 
+   If there are any warnings or other messages from a prior
+   request to the server,
+   they appear above the rest of the content, just until the next
+   action.  (This is only on request/response transactions that
+   result in regenerating the page, not on every xmlhttp request.)
   -->
 
 {% with messages = get_flashed_messages() %}
@@ -51,84 +52,244 @@
 
 <!-- Design on bootstrap grid -->
 <form role="form">
-<div class="row">
-  <div class="col-md-2">
-    <input type="text" class="form-control"
-     name="miles" value="Distance in miles"/>
-  </div>
-  <div class="col-md-4">
-    <input type="text" class="form-control"
-      name="location" value="location" />
-  </div>
-  <div class="col-md-4">
-    <span class="times form-control">(times)</span>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-2">
-    <input type="text" class="form-control"
-     name="miles" value="Distance in miles"/>
-  </div>
-  <div class="col-md-4">
-    <input type="text" class="form-control"
-      name="location" value="location" />
-  </div>
-  <div class="col-md-4">
-    <span class="times form-control">(times)</span>
-  </div>
-</div>
+  <!-- Brevet Distance, start date, start time
+  <div class="row"> -->
+  <!--  <div class="col-md-2">
+       Drop-down list
+      <select name="brevet">
+        <option value="200"> 200 </option>
+        <option value="300"> 300 </option>
+        <option value="400"> 400 </option>
+        <option value="600"> 600 </option>
+        <option value="1000"> 1000 </option>
+      </select>
+    </div>
+    <div class="col-md-3"> -->
+      <!-- Need label here, see if I can get a calendar object
+      <input type="text" class="form-control"
+       name="starting-date" value="Starting date"/>
+    </div>
+    <div class="col-md-3"> -->
+      <!-- Need label here, see if I can get a time object
+      <input type="text" class="form-control"
+       name="starting-time" value="Starting time"/>
+    </div>
+  </div> -->
 
-<div class="row">
-  <div class="col-md-2">
-    <input type="text" class="form-control"
-     name="miles" value="Distance in miles"/>
+  <!-- Toggle Input Units
+  <div class="row">
+    <div class="col-md-1">
+      <label for="mi"> miles </label>
+    </div>
+    <div class="col-md-1">
+      <input type="radio" class="form-control" id="mi" name="input-unit" value="mi"/>
+    </div>
+    <div class="col-md-1">
+      <label for="km"> km </label>
+    </div>
+    <div class="col-md-1">
+      <input type="radio" class="form-control" id="km" name="input-unit" value="km"/>
+    </div>
+  </div> -->
+
+  <!-- Toggle Output Units
+  <div class="row">
+    <div class="col-md-1">
+      <label for="mi"> miles </label>
+    </div>
+    <div class="col-md-1">
+      <input type="radio" class="form-control" id="mi" name="output-unit" value="mi"/>
+    </div>
+    <div class="col-md-1">
+      <label for="km"> km </label>
+    </div>
+    <div class="col-md-1">
+      <input type="radio" class="form-control" id="km" name="output-unit" value="km"/>
+    </div>
+
+    <div class="col-md-1">
+      <label for="both"> both </label>
+    </div>
+    <div class="col-md-1">
+      <input type="radio" class="form-control" id="both" name="output-unit" value="both"/>
+    </div>
+  </div> -->
+
+  <!-- Form elements -->
+  <div class="row">
+    <div class="col-md-2">
+      <input type="text" class="form-control"
+       name="miles" value="Distance in miles"/>
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control"
+        name="location" value="location" />
+    </div>
+    <div class="col-md-3">
+      <span class="times form-control">(times)</span>
+    </div>
   </div>
-  <div class="col-md-4">
-    <input type="text" class="form-control"
-      name="location" value="location" />
+
+  <div class="row">
+    <div class="col-md-2">
+      <input type="text" class="form-control"
+       name="miles" value="Distance in miles"/>
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control"
+        name="location" value="location" />
+    </div>
+    <div class="col-md-3">
+      <span class="times form-control">(times)</span>
+    </div>
   </div>
-  <div class="col-md-4">
-    <span class="times form-control">(times)</span>
-  </div>
-</div>
+
 </form>
 
 <script type="text/javascript">
 
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
-  $(document).ready(function(){
-   // Do the following when the page is finished loading
+    $(document).ready(function(){
+    // Do the following when the page is finished loading
+/*
+      // When a field named 'brevet' is changed ...
+      $('select[name="brevet"]').change(
+        // ... execute this function
+        function(){
+          console.log("brevet distance changed");
+          //if this.val() returns string use parseInt($(this).val());
+          var brevet_dist = $(this).val();
 
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_set_brevet',
+            // The object to pass to the server
+            { brevet: brevet_dist },
+            // The function to call with the response
+            function(data) {
+              var b_dist = data.result;
+              alert("Got a response: " +  b_dist);
+              //target.text(times);
+          }); // End of the call to getJSON
+
+      });  // End of the function to be called when brevet field changes
+
+
+      // When a field named 'starting-date' is changed ...
+      $('input[name="starting-date"]').change(
+        // ... execute this function
+        function(){
+          console.log("starting-date changed");
+          //if this.val() returns string use parseInt($(this).val());
+          var start_date = $(this).val();
+
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_set_sdate',
+            // The object to pass to the server
+            { sdate: start_date},
+            // The function to call with the response
+            function(data) {
+              var s_date = data.result;
+              alert("Got a response: " +  s_date;
+              //target.text(times);
+          }); // End of the call to getJSON
+
+      });  // End of the function to be called when brevet field changes
+
+      // When a field named 'starting-time' is changed ...
+      $('input[name="starting-time"]').change(
+        // ... execute this function
+        function(){
+          console.log("starting-time changed");
+          //if this.val() returns string use parseInt($(this).val());
+          var start_time = $(this).val();
+
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_set_stime',
+            // The object to pass to the server
+            { stime: start_time},
+            // The function to call with the response
+            function(data) {
+              var s_time = data.result;
+              alert("Got a response: " +  s_time;
+              //target.text(times);
+          }); // End of the call to getJSON
+
+      });  // End of the function to be called when brevet field changes
+
+      // When a field named 'starting-time' is changed ...
+      $('input[name="input-unit"]').change(
+        // ... execute this function
+        function(){
+          console.log("input unit changed");
+          //if this.val() returns string use parseInt($(this).val());
+          var input_unit = $(this).val();
+
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_set_inunits',
+            // The object to pass to the server
+            { inunit: input_unit},
+            // The function to call with the response
+            function(data) {
+              var in_unit = data.result;
+              alert("Got a response: " +  in_unit;
+              //target.text(times);
+          }); // End of the call to getJSON
+
+      });
+
+      // When a field named 'starting-time' is changed ...
+      $('input[name="output-unit"]').change(
+        // ... execute this function
+        function(){
+          console.log("output-unit changed");
+          //if this.val() returns string use parseInt($(this).val());
+          var output_unit = $(this).val();
+
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_set_outunits',
+            // The object to pass to the server
+            { outunit: output_unit},
+            // The function to call with the response
+            function(data) {
+              var out_unit = data.result;
+              alert("Got a response: " +  out_unit;
+              //target.text(times);
+          }); // End of the call to getJSON
+
+      });
+*/
       // When a field named 'miles' is changed ...
       $('input[name="miles"]').change(
-          // ... execute this function
-          function(){
-              var e_miles = $(this).val();
+        // ... execute this function
+        console.log("miles changed");
+        function(){
+          var e_miles = $(this).val();
 
-              var target = $(this).parents(".row").find(".times");
+          var target = $(this).parents(".row").find(".times");
 
-              // DEBUG: How do I replace the 'times' field?
-              // alert("Content of the field I want to change: " +
-              //   target.html());
+          // DEBUG: How do I replace the 'times' field?
+          // alert("Content of the field I want to change: " +
+          //   target.html());
 
-              // AJAX request
-              $.getJSON($SCRIPT_ROOT + '/_calc_times',
-                  // The object to pass to the server
-                  { miles: e_miles },
-                  // The function to call with the response
-                  function(data) {
-                     var times = data.result;
-                     // alert("Got a response: " +  times);
-                     target.text(times);
-                  }); // End of the call to getJSON
-          });  // End of the function to be called when field changes
-              
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_calc_times',
+            // The object to pass to the server
+            { miles: e_miles },
+            // The function to call with the response
+            function(data) {
+              var times = data.result;
+              // alert("Got a response: " +  times);
+              target.text(times);
+          }); // End of the call to getJSON
+      });  // End of the function to be called when field changes
 
-     });   // end of what we do on document ready
+
+  });   // end of what we do on document ready
 
 </script>
 
 </div>
-</body> </html>
+</body>
+</html>
