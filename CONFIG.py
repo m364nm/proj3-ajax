@@ -10,6 +10,7 @@ import random
 #DEBUG = True
 
 ### On ix.cs.uoregon.edu
-PORT=random.randint(5000,8000)
+#PORT=random.randint(5000,8000)
+PORT=8880
 SERVER_NAME = "ix.cs.uoregon.edu:{}".format(PORT)
 DEBUG = False # Because it's unsafe to run outside localhost

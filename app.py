@@ -60,7 +60,7 @@ def page_not_found(error):
 #
 ###############
 
-'''
+
 @app.route("/_set_brevet")
 def set_brevet():
   """
@@ -97,7 +97,6 @@ def set_outunits():
   sets the units needed to calculate brevet times
   """
   app.logger.debug("Got a JSON request");
-'''
 
 
 @app.route("/_calc_times")
