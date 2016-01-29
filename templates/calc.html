@@ -71,7 +71,7 @@
        name="starting-date" value="Starting date"/>
     </div>
     <div class="col-md-3">
-      <!-- Need label here, see if I can get a time object -->
+      <!-- Need label here, see if I can get a time object -->˜
       <input type="text" class="form-control"
        name="starting-time" value="Starting time"/>
     </div>
@@ -83,38 +83,16 @@
       <label for="mi"> miles </label>
     </div>
     <div class="col-md-1">
-      <input type="radio" class="form-control" id="mi" name="input-unit" value="mi"/>
+      <input type="radio" class="form-control" id="mi" name="unit" value="mi"/>
     </div>
     <div class="col-md-1">
       <label for="km"> km </label>
     </div>
     <div class="col-md-1">
-      <input type="radio" class="form-control" id="km" name="input-unit" value="km"/>
+      <input type="radio" class="form-control" id="km" name="unit" value="km"/>
     </div>
   </div>
 
-  <!-- Toggle Output Units -->
-  <div class="row">
-    <div class="col-md-1">
-      <label for="mi"> miles </label>
-    </div>
-    <div class="col-md-1">
-      <input type="radio" class="form-control" id="mi" name="output-unit" value="mi"/>
-    </div>
-    <div class="col-md-1">
-      <label for="km"> km </label>
-    </div>
-    <div class="col-md-1">
-      <input type="radio" class="form-control" id="km" name="output-unit" value="km"/>
-    </div>
-
-    <div class="col-md-1">
-      <label for="both"> both </label>
-    </div>
-    <div class="col-md-1">
-      <input type="radio" class="form-control" id="both" name="output-unit" value="both"/>
-    </div>
-  </div>
 
   <!-- Form elements -->
   <div class="row">
@@ -219,17 +197,17 @@
       });  // End of the function to be called when brevet field changes
 
       // When a field named 'starting-time' is changed ...
-      $('input[name="input-unit"]').change(
+      $('input[name="unit"]').change(
         // ... execute this function
         function(){
-          console.log("input unit changed");
+          console.log("unit changed");
           //if this.val() returns string use parseInt($(this).val());
           var input_unit = $(this).val();
 
           // AJAX request
-          $.getJSON($SCRIPT_ROOT + '/_set_inunits',
+          $.getJSON($SCRIPT_ROOT + '/_set_units',
             // The object to pass to the server
-            { inunit: input_unit},
+            { unit: input_unit},
             // The function to call with the response
             function(data) {
               var in_unit = data.result;
@@ -239,26 +217,6 @@
 
       });
 
-      // When a field named 'starting-time' is changed ...
-      $('input[name="output-unit"]').change(
-        // ... execute this function
-        function(){
-          console.log("output-unit changed");
-          //if this.val() returns string use parseInt($(this).val());
-          var output_unit = $(this).val();
-
-          // AJAX request
-          $.getJSON($SCRIPT_ROOT + '/_set_outunits',
-            // The object to pass to the server
-            { outunit: output_unit},
-            // The function to call with the response
-            function(data) {
-              var out_unit = data.result;
-              alert("Got a response: " +  out_unit;
-              //target.text(times);
-          }); // End of the call to getJSON
-
-      });
 
       // When a field named 'miles' is changed ...
       $('input[name="miles"]').change(

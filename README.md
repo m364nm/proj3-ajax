@@ -38,7 +38,7 @@ For controls above 200km, the max speed begins to reduce:
   Ex: 350km = 200/34 + 150/32 = 5H53 + 4H41 = 10H34
 
 if control location = 0
-return start time
+return 0
 
 if control location 0 <= 200
 200/34
@@ -58,7 +58,7 @@ if control location 601 <= 1000
 Closing time for the starting point control (at 0km) is one hour after the official start.
 
 if control location = 0
-return 01H00
+return 1
 
 if control location 1 <= 600
 600/15

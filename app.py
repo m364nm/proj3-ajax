@@ -49,7 +49,7 @@ def index():
 @app.errorhandler(404)
 def page_not_found(error):
     app.logger.debug("Page not found")
-    flask.session['linkback'] =  flask.url_for("calc")
+    flask.session['linkback'] =  flask.url_for("index")
     return flask.render_template('page_not_found.html'), 404
 
 
@@ -84,15 +84,8 @@ def set_stime():
   """
   app.logger.debug("Got a JSON request");
 
-@app.route("/_set_inunits")
-def set_inunits():
-  """
-  sets the units needed to calculate brevet times
-  """
-  app.logger.debug("Got a JSON request");
-
-@app.route("/_set_outunits")
-def set_outunits():
+@app.route("/_set_units")
+def set_units():
   """
   sets the units needed to calculate brevet times
   """
