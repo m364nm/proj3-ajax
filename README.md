@@ -32,18 +32,27 @@ For controls above 200km, the max speed begins to reduce:
   Ex: 350km = 200/34 + 150/32 = 5H53 + 4H41 = 10H34
 
 if control location = 0
+
 return 0
 
+
 if control location 0 <= 200
+
 200/34
 
+
 if control location 201 <= 400
+
 200/34 + 200/32
 
+
 if control location 401 <= 600
+
 200/34 + 200/32 + 200/30
 
+
 if control location 601 <= 1000
+
 200/34 + 200/32 + 200/30 + 400/28
 
 
