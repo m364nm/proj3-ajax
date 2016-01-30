@@ -67,18 +67,20 @@ if control location 601 <= 1000
 ```
 ### Special rules:
   - Brevets can be: 200, 300, 400, 600, 1000
+  - Ending time for brevets (not calculated out):
+
+```
+  200km brevet is 13H30
+  300km brevet is 20H00
+  400km brevet is 27H00
+  600km brevet is 40H00
+  1000km brevet is 51H00
+```
+
   - The total distance of the route cannot be more than 10% longer than the theoretical distance, inclusive
   - Times are shown in 24-hour format
   - Minutes should be rounded to the nearest minute.
   - It is assumed that all checkpoints are located within the same time zone
-  - Ending time for brevets (not calculated out):
-  ```
-    200km brevet is 13H30
-    300km brevet is 20H00
-    400km brevet is 27H00
-    600km brevet is 40H00
-    1000km brevet is 51H00
-  ```
 
 ## Testing
 
