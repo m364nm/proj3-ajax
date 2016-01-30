@@ -76,10 +76,10 @@ if control location 601 <= 1000
     600km brevet is 40H00
     1000km brevet is 51H00
   ```
-  -The total distance of the route cannot be more than 10% longer than the theoretical distance, inclusive
-  -Times are shown in 24-hour format
-  -Minutes should be rounded to the nearest minute.
-  -It is assumed that all checkpoints are located within the same time zone
+  - The total distance of the route cannot be more than 10% longer than the theoretical distance, inclusive
+  - Times are shown in 24-hour format
+  - Minutes should be rounded to the nearest minute.
+  - It is assumed that all checkpoints are located within the same time zone
 
 
 ## Testing
