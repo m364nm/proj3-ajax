@@ -103,7 +103,7 @@ def set_units():
   """
   app.logger.debug("Got a JSON request");
   calculate.units = request.args.get('unit')
-  print("units = {}".format(calculate.units))
+  #print("units = {}".format(calculate.units))
   return jsonify(result=calculate.units)
 
 

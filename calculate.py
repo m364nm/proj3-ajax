@@ -89,16 +89,16 @@ def parse_time(time):
 #         return -1 if the distance is greater than 10% of the brevet
 ###
 def calc(dist):
-    print("units are = {}".format(units))
+    #print("units are = {}".format(units))
     if units == "mi":
         distance = 1.909*dist
     else:
         distance = dist
 
     ## The route distance must not be longer than 10% + the brevet
-    print ("Calculate: Distance = {}, brevet = {}".format(distance, brevet))
+    #print ("Calculate: Distance = {}, brevet = {}".format(distance, brevet))
     if (distance/brevet) > 1.10:
-        print ("throw error: you cannot have a control longer than 10% of the total distance")
+        #print ("throw error: you cannot have a control longer than 10% of the total distance")
         return -1
     else:
         ## When the distance we are dealing with is the brevet length or greater,

@@ -54,75 +54,73 @@
 <form role="form">
 
   <!-- Brevet Distance, start date, start time -->
-  <div class="row">
-   <div class="col-md-2">
-      <!-- Drop-down list -->
-      <select name="brevet">
-        <option value="200"> 200 </option>
-        <option value="300"> 300 </option>
-        <option value="400"> 400 </option>
-        <option value="600"> 600 </option>
-        <option value="1000"> 1000 </option>
-      </select>
+  <div class="settings">
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4">
+        <h6>Brevet Length</h6>
+      </div>
+      <div class="col-md-2 ">
+        <h6>Distance units</h6>
+      </div>
     </div>
-    <div class="col-md-3">
-      <!-- Need label here, see if I can get a calendar object -->
-      <input type="date" class="form-control"
-       name="starting-date" value="mm/dd/yyyy"/>
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4">
+         <!-- Drop-down list -->
+         <select name="brevet" id="brevet_unit">
+           <option value="200"> 200 </option>
+           <option value="300"> 300 </option>
+           <option value="400"> 400 </option>
+           <option value="600"> 600 </option>
+           <option value="1000"> 1000 </option>
+         </select>
+         <label for="brevet_unit"> km </label>
+       </div>
+
+       <div class="col-md-1">
+         <label class="radio-inline"><input type="radio" class="form-control" id="mi" name="unit" value="mi"/> miles </label>
+       </div>
+       <div class="col-md-1">
+         <label class="radio-inline"><input type="radio" class="form-control" id="km" name="unit" value="km"/> km </label>
+       </div>
     </div>
-    <div class="col-md-3">
-      <!-- Need label here, see if I can get a time object -->
-      <input type="time" class="form-control"
-       name="starting-time" value="hh:mm"/>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-3">
+        <!-- Need label here, see if I can get a calendar object -->
+        <input type="date" class="form-control"
+         name="starting-date" value="mm/dd/yyyy"/>
+      </div>
+
+      <div class="col-md-3">
+        <!-- Need label here, see if I can get a time object -->
+        <input type="time" class="form-control"
+         name="starting-time" value="hh:mm"/>
+      </div>
     </div>
+  </div> <!-- end settings div-->
+</form>
+<form role="form" id="timesform">
+  <div class"inputs">
+    <div class="row">
+      <h5> Enter the distance of each checkpoint. The location field is optional. </h5>
+    </div>
+    <!-- Form elements -->
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Toggle Input Units -->
-  <div class="row">
-    <div class="col-md-1">
-      <label for="mi"> miles </label>
-    </div>
-    <div class="col-md-1">
-      <input type="radio" class="form-control" id="mi" name="unit" value="mi"/>
-    </div>
-    <div class="col-md-1">
-      <label for="km"> km </label>
-    </div>
-    <div class="col-md-1">
-      <input type="radio" class="form-control" id="km" name="unit" value="km"/>
-    </div>
-  </div>
-
-
-  <!-- Form elements -->
-  <div class="row">
-    <div class="col-md-2">
-      <input type="text" class="form-control"
-       name="dist" value="Distance"/>
-    </div>
-    <div class="col-md-3">
-      <input type="text" class="form-control"
-        name="location" value="location" />
-    </div>
-    <div class="col-md-6">
-      <span class="times form-control">(times)</span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <input type="text" class="form-control"
-       name="dist" value="Distance"/>
-    </div>
-    <div class="col-md-3">
-      <input type="text" class="form-control"
-        name="location" value="location" />
-    </div>
-    <div class="col-md-6">
-      <span class="times form-control">(times)</span>
-    </div>
-  </div>
-
 </form>
 
 <script type="text/javascript">
@@ -132,6 +130,11 @@
     $(document).ready(function(){
     // Do the following when the page is finished loading
       console.log("document ready and listening")
+      $('.settings').change(
+        function() {
+            console.log("settings has changed");
+        });
+
       // When a field named 'brevet' is changed ...
       $('select[name="brevet"]').change(
         // ... execute this function
@@ -203,7 +206,7 @@
           console.log("unit changed");
           //if this.val() returns string use parseInt($(this).val());
           var input_unit = $(this).val();
-          
+
           // AJAX request
           $.getJSON($SCRIPT_ROOT + '/_set_units',
             // The object to pass to the server
@@ -224,7 +227,6 @@
         function(){
           console.log("control distance changed");
           var control = $(this).val();
-
 
           var target = $(this).parents(".row").find(".times");
 
