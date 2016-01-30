@@ -12,6 +12,7 @@ from flask import jsonify # For AJAX transactions
 
 import json
 import logging
+import calculate
 
 # Date handling
 import arrow # Replacement for datetime, based on moment.js
@@ -64,25 +65,36 @@ def page_not_found(error):
 @app.route("/_set_brevet")
 def set_brevet():
   """
-  sets the units needed to calculate brevet times
+  sets the brevet distance
   """
   app.logger.debug("Got a JSON request");
+  calculate.brevet = request.args.get('brevet', 0, type=int)
+  return jsonify(result=calculate.brevet)
 
 
 @app.route("/_set_sdate")
 def set_sdate():
-  """
-  sets the units needed to calculate brevet times
-  """
-  app.logger.debug("Got a JSON request");
-
+  '''
+  sets the starting date
+  '''
+  app.logger.debug("Got a JSON request")
+  sdate = request.args.get('sdate')
+  date = sdate.split("-")
+  calculate.startdatetime = calculate.startdatetime.replace(year=int(date[0]), month=int(date[1]), day=int(date[2]))
+  print('updated start date = {}'.format(calculate.startdatetime))
+  return jsonify(result=calculate.startdatetime.isoformat())
 
 @app.route("/_set_stime")
 def set_stime():
-  """
-  sets the units needed to calculate brevet times
-  """
+  '''
+  sets the starting time
+  '''
   app.logger.debug("Got a JSON request");
+  stime = request.args.get('stime')
+  time = stime.split(':')
+  calculate.startdatetime = calculate.startdatetime.replace(hour=int(time[0]), minute=int(time[1]))
+  print('updated start time = {}'.format(calculate.startdatetime))
+  return jsonify(result=calculate.startdatetime.isoformat())
 
 @app.route("/_set_units")
 def set_units():
@@ -90,6 +102,9 @@ def set_units():
   sets the units needed to calculate brevet times
   """
   app.logger.debug("Got a JSON request");
+  calculate.units = request.args.get('unit')
+  print("units = {}".format(calculate.units))
+  return jsonify(result=calculate.units)
 
 
 @app.route("/_calc_times")
@@ -100,8 +115,16 @@ def calc_times():
   Expects one URL-encoded argument, the number of miles.
   """
   app.logger.debug("Got a JSON request");
-  miles = request.args.get('miles', 0, type=int)
-  return jsonify(result=miles * 2)
+
+  dist = request.args.get('dist', 0, type=int)
+
+  tmp = calculate.calc(dist)
+  if (tmp == -1):
+      return jsonify(result="Distance is more than 10% of the brevet distance.")
+  start = tmp[0].format("MM/DD/YYYY HH:mm")
+  end = tmp[1].format("MM/DD/YYYY HH:mm")
+  returnvalue = "open: {} | close: {}".format(start, end)
+  return jsonify(result=returnvalue)
 
 #################
 #

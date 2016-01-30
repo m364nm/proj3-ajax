@@ -13,13 +13,14 @@ import arrow
 # initializing the global variables
 ###
 global brevet
-brevet = 0
+brevet = 200
 
 global startdatetime
-startdatetime = arrow.utcnow()
+startdatetime = arrow.Arrow(2000, 1, 1, 0, 0, 0)
 
 global units
 units = "km"
+
 
 ###
 # Input: location in km
@@ -68,7 +69,7 @@ def get_special_case(location):
     elif location == 600:
         return "{}:{}".format(40, 00)
     else: #brevet is 1000
-        return "{}:{}".format(51, 00)
+        return "{}:{}".format(75, 00)
 
 
 ###
@@ -77,7 +78,7 @@ def get_special_case(location):
 def parse_time(time):
     decimal = time - int(time)
     minutes = decimal*60
-    return "{}:{}".format(int(time), int(minutes))
+    return "{hr:02d}:{min:02d}".format(hr = int(time), min = int(round(minutes)))
 
 
 ###
@@ -88,14 +89,14 @@ def parse_time(time):
 #         return -1 if the distance is greater than 10% of the brevet
 ###
 def calc(dist):
-
+    print("units are = {}".format(units))
     if units == "mi":
-        distance = 0
+        distance = 1.909*dist
     else:
         distance = dist
 
     ## The route distance must not be longer than 10% + the brevet
-    print ("in calc, distance = {}, brevet = {}".format(distance, brevet))
+    print ("Calculate: Distance = {}, brevet = {}".format(distance, brevet))
     if (distance/brevet) > 1.10:
         print ("throw error: you cannot have a control longer than 10% of the total distance")
         return -1
@@ -103,8 +104,8 @@ def calc(dist):
         ## When the distance we are dealing with is the brevet length or greater,
         ## then return the special case, else get the opening and closing times
         if distance >= brevet:
-            opentime = get_opening_time(distance)
-            closetime = get_special_case(distance)
+            opentime = get_opening_time(brevet)
+            closetime = get_special_case(brevet)
         else:
             opentime = get_opening_time(distance)
             closetime = get_closing_time(distance)
