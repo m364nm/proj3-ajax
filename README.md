@@ -7,7 +7,7 @@ The current RUSA controle time calculator is a Perl script that takes an HTML fo
 
 ## Calculation of Control Times
 
-### Minimum and maximum speeds for ACP brevets
+### Minimum and Maximum speeds for ACP brevets
 
 ```
 Control Location (km)  |  Minimum Speed (km/hr) | Maximum Speed (km/hr)
@@ -17,13 +17,13 @@ Control Location (km)  |  Minimum Speed (km/hr) | Maximum Speed (km/hr)
       600-1000         |          11.428        |         28
 ```
 
-### distance, speed and time Calculation
+### Distance, Speed and Time Calculation
 
 distance (km) / speed (km/hr) = time (hr)
 
 Convert the time into hours and minutes by subtracting the whole number of hours and multiplying the fractional part by 60. For example, 6.6666..hours will be expressed as 6H40.
 
-### Opening times: control location / maximum
+### Opening Times: Control Location / Maximum Speed
 
 For controls above 200km, the max speed begins to reduce:
   Ex: 350km = 200/34 + 150/32 = 5H53 + 4H41 = 10H34
@@ -51,7 +51,7 @@ if control location 601 <= 1000
 ```
 
 
-### Closing times: control location / minimum
+### Closing Times: Control Location / Minimum Speed
 
 Closing time for the starting point control (at 0km) is one hour after the official start.
 
@@ -65,9 +65,9 @@ if control location 1 <= 600
 if control location 601 <= 1000
       600/15 + 400/11.428
 ```
-### Special rules:
+### Special Rules:
   - Brevets can be: 200, 300, 400, 600, 1000
-  - Ending time for brevets (not calculated out):
+  - Ending time for brevets:
 
 ```
   200km brevet is 13H30
