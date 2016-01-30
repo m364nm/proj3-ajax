@@ -5,7 +5,13 @@ Reimplement the RUSA ACP controle time calculator with flask and ajax
 
 The current RUSA controle time calculator is a Perl script that takes an HTML form and emits a text page. The reimplementation will fill in times as the input fields are filled.  Each time a distance is filled in, the corresponding open and close times should be filled in.   If no begin time has been provided, use 0:00 as the begin time.
 
-## Calculation of Control Times
+### Author
+
+Megan McMillan
+
+### Project Link
+
+# Calculation of Control Times
 
 ### Minimum and Maximum speeds for ACP brevets
 
