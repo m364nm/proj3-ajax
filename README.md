@@ -8,6 +8,7 @@ The current RUSA controle time calculator is a Perl script that takes an HTML fo
 ## Calculation of Control Times
 
 ### Minimum and maximum speeds for ACP brevets
+
 Control Location (km)  |  Minimum Speed (km/hr) | Maximum Speed (km/hr)
 
       0-200            |          15            |         34
@@ -17,7 +18,7 @@ Control Location (km)  |  Minimum Speed (km/hr) | Maximum Speed (km/hr)
       400-600          |          15            |         30  
 
       600-1000         |          11.428        |         28
-      
+
 
 ### distance, speed and time Calculation
 
