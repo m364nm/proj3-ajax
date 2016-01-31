@@ -53,21 +53,21 @@
 <!-- Design on bootstrap grid -->
 <form role="form">
 
-  <!-- Brevet Distance, start date, start time -->
+  <!-- Settings Form -->
   <div class="settings">
 
-    <div class="row">
-      <div class="col-md-2 col-md-offset-4">
+    <div class="row" id="labels">
+      <div class="col-md-2 col-md-offset-3">
         <h6>Brevet Length</h6>
       </div>
-      <div class="col-md-2 ">
+      <div class="col-md-2 col-md-offset-1">
         <h6>Distance units</h6>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-2 col-md-offset-4">
-         <!-- Drop-down list -->
+      <div class="col-md-2 col-md-offset-3">
+         <!-- Drop-down list of Brevet distances in km -->
          <select name="brevet" id="brevet_unit">
            <option value="200"> 200 </option>
            <option value="300"> 300 </option>
@@ -78,34 +78,178 @@
          <label for="brevet_unit"> km </label>
        </div>
 
-       <div class="col-md-1">
+       <!-- Distance conversion: miles or km -->
+       <div class="col-md-1 col-md-offset-1">
          <label class="radio-inline"><input type="radio" class="form-control" id="mi" name="unit" value="mi"/> miles </label>
        </div>
        <div class="col-md-1">
          <label class="radio-inline"><input type="radio" class="form-control" id="km" name="unit" value="km"/> km </label>
        </div>
     </div>
+
+    <div class="row" id="labels">
+      <div class="col-md-2 col-md-offset-3">
+        <h6>Start Date</h6>
+      </div>
+      <div class="col-md-2 col-md-offset-1">
+        <h6>Start Time</h6>
+      </div>
+    </div>
+
     <div class="row">
+      <!-- Select start date object -->
       <div class="col-md-3 col-md-offset-3">
-        <!-- Need label here, see if I can get a calendar object -->
         <input type="date" class="form-control"
          name="starting-date" value="mm/dd/yyyy"/>
       </div>
 
+      <!-- Select start time object -->
       <div class="col-md-3">
-        <!-- Need label here, see if I can get a time object -->
         <input type="time" class="form-control"
          name="starting-time" value="hh:mm"/>
       </div>
     </div>
-  </div> <!-- end settings div-->
-</form>
+  </div>
+</form> <!-- end settings form-->
+
+<!-- Control Checkpoints Form -->
 <form role="form" id="timesform">
   <div class"inputs">
     <div class="row">
       <h5> Enter the distance of each checkpoint. The location field is optional. </h5>
     </div>
+
     <!-- Form elements -->
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="distanceinput"
+         name="dist" value="Distance"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control"
+          name="location" value="location" />
+      </div>
+      <div class="col-md-6">
+        <span class="times form-control">(times)</span>
+      </div>
+    </div>
+
+
     <div class="row">
       <div class="col-md-3">
         <input type="text" class="form-control" id="distanceinput"
@@ -129,18 +273,44 @@
 
     $(document).ready(function(){
     // Do the following when the page is finished loading
-      console.log("document ready and listening")
+      //console.log("document ready and listening")
+
+      //When any settings are changed, update all control distance fields
       $('.settings').change(
         function() {
-            console.log("settings has changed");
+            $('input[name="dist"]').each(function() {
+              //console.log("control distance changed");
+
+              var control = $(this).val();
+              var target = $(this).parents(".row").find(".times");
+
+              //Check that all inputs are numbers
+              if ($.isNumeric(control)) {
+                // AJAX request
+                $.getJSON($SCRIPT_ROOT + '/_calc_times',
+                  // The object to pass to the server
+                  { dist: control },
+                  // The function to call with the response
+                  function(data) {
+                    var times = data.result;
+                    //alert("Got a response: " +  times);
+                    target.text(times);
+                }); // End of the call to getJSON
+              } else {
+                var times = "(times)"
+                target.text(times);
+              }
+
+            });
+
         });
 
       // When a field named 'brevet' is changed ...
       $('select[name="brevet"]').change(
         // ... execute this function
         function(){
-          console.log("brevet distance changed");
-          //if this.val() returns string use parseInt($(this).val());
+          //console.log("brevet distance changed");
+
           var brevet_dist = $(this).val();
 
           // AJAX request
@@ -151,7 +321,6 @@
             function(data) {
               var b_dist = data.result;
               //alert("Got a response: " +  b_dist);
-              //target.text(times);
           }); // End of the call to getJSON
 
       });  // End of the function to be called when brevet field changes
@@ -161,8 +330,7 @@
       $('input[name="starting-date"]').change(
         // ... execute this function
         function(){
-          console.log("starting-date changed");
-          //if this.val() returns string use parseInt($(this).val());
+          //console.log("starting-date changed");
           var start_date = $(this).val();
 
           // AJAX request
@@ -173,7 +341,6 @@
             function(data) {
               var s_date = data.result;
               //alert("Got a response: " +  s_date);
-              //target.text(times);
           }); // End of the call to getJSON
 
       });  // End of the function to be called when brevet field changes
@@ -182,8 +349,8 @@
       $('input[name="starting-time"]').change(
         // ... execute this function
         function(){
-          console.log("starting-time changed");
-          //if this.val() returns string use parseInt($(this).val());
+          //console.log("starting-time changed");
+
           var start_time = $(this).val();
 
           // AJAX request
@@ -194,17 +361,15 @@
             function(data) {
               var s_time = data.result;
               //alert("Got a response: " +  s_time);
-              //target.text(times);
           }); // End of the call to getJSON
 
       });  // End of the function to be called when brevet field changes
 
-      // When a field named 'starting-time' is changed ...
+      // When a field named 'unit' is changed ...
       $('input[name="unit"]').change(
         // ... execute this function
         function(){
-          console.log("unit changed");
-          //if this.val() returns string use parseInt($(this).val());
+          //console.log("unit changed");
           var input_unit = $(this).val();
 
           // AJAX request
@@ -215,7 +380,6 @@
             function(data) {
               var in_unit = data.result;
               //alert("Got a response: " +  in_unit);
-              //target.text(times);
           }); // End of the call to getJSON
 
       });
@@ -225,27 +389,33 @@
       $('input[name="dist"]').change(
         // ... execute this function
         function(){
+
           console.log("control distance changed");
           var control = $(this).val();
 
           var target = $(this).parents(".row").find(".times");
 
-          // DEBUG: How do I replace the 'times' field?
-          // alert("Content of the field I want to change: " +
-          //   target.html());
+          if ($.isNumeric(control)) {
+            // DEBUG: How do I replace the 'times' field?
 
-          // AJAX request
-          $.getJSON($SCRIPT_ROOT + '/_calc_times',
-            // The object to pass to the server
-            { dist: control },
-            // The function to call with the response
-            function(data) {
-              var times = data.result;
-              //alert("Got a response: " +  times);
-              target.text(times);
-          }); // End of the call to getJSON
+            // alert("Content of the field I want to change: " +
+            //   target.html());
+
+            // AJAX request
+            $.getJSON($SCRIPT_ROOT + '/_calc_times',
+              // The object to pass to the server
+              { dist: control },
+              // The function to call with the response
+              function(data) {
+                var times = data.result;
+                //alert("Got a response: " +  times);
+                target.text(times);
+            }); // End of the call to getJSON
+          } else {
+            var times = "(times)"
+            target.text(times);
+          }
       });  // End of the function to be called when field changes
-
 
   });   // end of what we do on document ready
 

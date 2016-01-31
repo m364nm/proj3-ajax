@@ -9,3 +9,7 @@
 .row {
   padding: 10px;
 }
+
+#labels {
+  padding-bottom: 0px;
+}
