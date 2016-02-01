@@ -9,8 +9,9 @@ The current RUSA controle time calculator is a Perl script that takes an HTML fo
 
 Megan McMillan
 
-### Project Link
+### Location on ix
 
+http://ix.cs.uoregon.edu/~mcmillan/htbin/cis399/proj3-ajax/
 
 ## Setup and Run Project
 1. Modify Makefile and CONFIG.py to point to the appropriate local environment variables.
