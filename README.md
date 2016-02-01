@@ -12,6 +12,12 @@ Megan McMillan
 ### Project Link
 
 
+## Setup and Run Project
+1. Modify Makefile and CONFIG.py to point to the appropriate local environment variables.
+2. Run ```make install```
+3. Activate the virtual environment by running ```. env/bin/activate```
+4. Run ```python3 app.py```
+
 
 # Calculation of Control Times
 
