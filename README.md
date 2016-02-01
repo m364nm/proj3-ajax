@@ -17,7 +17,7 @@ Megan McMillan
 2. Run ```make install```
 3. Activate the virtual environment by running ```. env/bin/activate```
 4. Run ```python3 app.py```
-
+5. Access in browser by navigating to 'hostname:port#', which will most likely be 'localhost:5000'
 
 # Calculation of Control Times
 
@@ -71,7 +71,7 @@ For controls above 600km, the max speed begins to reduce:
 - Control point distance field only takes numbers
 - If a setting is changed above, all modified form elements should update accordingly
 
-## Testing
+# Testing
 
 Run the unit test scripts by running:
 ```
