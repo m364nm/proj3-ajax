@@ -58,7 +58,10 @@ def get_closing_time(location): #in km
     else:
         return parse_time(600/15 + 400/11.428)
 
-
+###
+# Input: Brevet distance in km
+# Output: Special closing time for the brevet distance in HH:mm
+###
 def get_special_case(location):
     if location == 200:
         return "{}:{}".format(13, 30)
@@ -73,7 +76,8 @@ def get_special_case(location):
 
 
 ###
-# Takes a float time and formats as HH:mm
+# Input: Takes a float time
+# Output: Formats as HH:mm
 ###
 def parse_time(time):
     decimal = time - int(time)
@@ -83,10 +87,10 @@ def parse_time(time):
 
 ###
 # Input: distance
-# Output: the open and close date/time of the control location in list:
+# Output: return -1 if the distance is greater than 10% of the brevet
+#         else return the open and close date/time of the control location in list:
 #            list[0] = opening date and time
 #            list[1] = closing date and time
-#         return -1 if the distance is greater than 10% of the brevet
 ###
 def calc(dist):
     #print("units are = {}".format(units))
@@ -96,9 +100,7 @@ def calc(dist):
         distance = dist
 
     ## The route distance must not be longer than 10% + the brevet
-    #print ("Calculate: Distance = {}, brevet = {}".format(distance, brevet))
     if (distance/brevet) > 1.10:
-        #print ("throw error: you cannot have a control longer than 10% of the total distance")
         return -1
     else:
         ## When the distance we are dealing with is the brevet length or greater,
@@ -110,6 +112,7 @@ def calc(dist):
             opentime = get_opening_time(distance)
             closetime = get_closing_time(distance)
 
+        #Split returned time and add input/output to the arrow object
         open_time = opentime.split(":")
         close_time = closetime.split(":")
 

@@ -61,7 +61,6 @@ def page_not_found(error):
 #
 ###############
 
-
 @app.route("/_set_brevet")
 def set_brevet():
   """
